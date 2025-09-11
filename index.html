@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Converter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <main id="app">
+        <div class="card">
+            <h1 class="title">Color Converter</h1>
+            
+            <div id="color-preview" class="color-preview">
+                 <div class="color-preview-overlay">
+                    <span id="color-preview-hex" class="color-preview-text"></span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <h2 class="group-title">RGB</h2>
+                <div class="slider-container">
+                    <label for="r-slider" class="slider-label">R</label>
+                    <input type="range" min="0" max="255" value="76" id="r-slider" class="slider slider-r">
+                    <span id="r-value" class="slider-value">76</span>
+                </div>
+                <div class="slider-container">
+                    <label for="g-slider" class="slider-label">G</label>
+                    <input type="range" min="0" max="255" value="132" id="g-slider" class="slider slider-g">
+                    <span id="g-value" class="slider-value">132</span>
+                </div>
+                <div class="slider-container">
+                    <label for="b-slider" class="slider-label">B</label>
+                    <input type="range" min="0" max="255" value="255" id="b-slider" class="slider slider-b">
+                    <span id="b-value" class="slider-value">255</span>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                 <div class="input-wrapper">
+                    <label for="hex-input" class="input-label">HEX</label>
+                    <div class="input-container">
+                        <input type="text" id="hex-input" placeholder="#RRGGBB" class="input-field">
+                        <button class="copy-button" data-target="hex-input" aria-label="Copy HEX value">
+                            <svg class="icon icon-copy" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            <svg class="icon icon-check hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </button>
+                    </div>
+                 </div>
+                 <div class="input-wrapper">
+                    <label for="decimal-input" class="input-label">Decimal</label>
+                     <div class="input-container">
+                        <input type="text" id="decimal-input" placeholder="0 - 16777215" class="input-field">
+                        <button class="copy-button" data-target="decimal-input" aria-label="Copy Decimal value">
+                            <svg class="icon icon-copy" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            <svg class="icon icon-check hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </button>
+                    </div>
+                 </div>
+                 <div class="input-wrapper">
+                    <label for="rgb-input" class="input-label">RGB</label>
+                     <div class="input-container">
+                        <input type="text" id="rgb-input" placeholder="rgb(r, g, b)" class="input-field" readonly>
+                        <button class="copy-button" data-target="rgb-input" aria-label="Copy RGB value">
+                            <svg class="icon icon-copy" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            <svg class="icon icon-check hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </button>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
