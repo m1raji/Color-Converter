@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const colorPreviewHex = document.getElementById('color-preview-hex');
     
     const copyButtons = document.querySelectorAll('.copy-button');
+    const eyedropperButton = document.getElementById('eyedropper-button');
+    const eyedropperContainer = document.getElementById('eyedropper-container');
 
     // --- COLOR CONVERSION UTILITIES ---
     const componentToHex = (c) => {
@@ -118,6 +120,31 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // --- EYEDROPPER LOGIC ---
+    if (!window.EyeDropper) {
+        eyedropperContainer.classList.add('hidden');
+    } else {
+        const eyeDropper = new EyeDropper();
+        
+        eyedropperButton.addEventListener('click', async () => {
+            try {
+                const result = await eyeDropper.open();
+                const hexValue = result.sRGBHex;
+                
+                // Update sliders based on picked color
+                const rgb = hexToRgb(hexValue);
+                if (rgb) {
+                    rSlider.value = rgb.r;
+                    gSlider.value = rgb.g;
+                    bSlider.value = rgb.b;
+                    updateUI('eyedropper');
+                }
+            } catch (err) {
+                console.log('EyeDropper cancelled or failed:', err);
+            }
+        });
+    }
 
     // --- INITIALIZATION ---
     updateUI();
